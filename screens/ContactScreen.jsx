@@ -1,10 +1,10 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 
-const SearchScreen = () => {
+const ContactScreen = () => {
   return (
     <View style={styles.center}>
-      <Text>This is the search screen</Text>
+      <Text>This is the contact screen</Text>
     </View>
   );
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchScreen;
+export default ContactScreen;

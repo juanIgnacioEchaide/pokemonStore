@@ -1,8 +1,7 @@
 import React, {useState,useEffect} from 'react';
-import { View, Text, Image, TouchableOpacity} from 'react-native';
+import { View, Button, Text, StyleSheet } from "react-native";
 
-export default function HomeScreen(props) {
-
+const HomeScreen = ({navigation}) => {
     const[data,setData]=useState([]);
     
     const fetchData=()=>{
@@ -14,13 +13,25 @@ export default function HomeScreen(props) {
     useEffect(() => {
         fetchData();    
     }, [])
-        
-    return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>WELCOME TO POKEMON STORE</Text>
-            {data.map(i=> <View><TouchableOpacity style={{backgroundColor:'red'}} key={i.name}>        
-                               <Text>{i.url}</Text> 
-                            </TouchableOpacity></View>)}
-      </View>
-    )
-}
+    
+  return (
+    <View style={styles.center}>
+      <Text>This is the home screen</Text>
+      <Button
+        title="Go to Search Screen"
+        onPress={() => navigation.navigate("Search")} // We added an onPress event which would navigate to the About screen
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  center: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+  },
+});
+
+export default HomeScreen;
